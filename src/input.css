@@ -26,4 +26,14 @@
     max-height:600px;
 }
 
-  
+.selector-options {
+    @apply grid grid-rows-2 shadow-md my-3 absolute bg-white w-full
+}
+
+.option {
+    @apply py-3 hover:bg-green-100 px-3 hover:text-green-500
+}
+
+/* .custom-select {
+    @apply w-1/4
+} */

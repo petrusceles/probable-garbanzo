@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:2000/public/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:2000/public/lib/owl_carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="http://localhost:2000/public/lib/owl_carousel/dist/assets/owl.theme.default.min.css">
+</head>
+<body>
+    <!-- Header Start -->
+    <header class="bg-blue-100 top-0 left-0 w-full flex items-center absolute transition-all duration-200 ease-in-out">
+        <div class="container">
+            <div class="flex items-center justify-between w-full relative px-8">
+                <div class="py-8">
+                    <a href="http://localhost:2000" class="w-20 h-8 block bg-blue-900"></a>
+                </div>
+
+                <div class="flex">
+                    <button id="hamburger" name="hamburger" type="button" class="block absolute bottom-1/4 right-6 top-1/4 lg:hidden">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+
+                    <nav id="nav-menu" class="w-1/2 h-full fixed bg-white -right-[500px] z-[999] top-0 lg:bg-transparent lg:flex lg:absolute lg:w-3/4 transition-all duration-500 ease-in-out lg:right-0">
+                        <ul class="block py-6 px-2 sm:px-5 md:px-10 lg:flex lg:items-center lg:w-full lg:justify-end">
+                            <div class="p-4 xl:px-10 w-full flex justify-between lg:hidden">
+                                <h2 class="font-semibold text-xl">BCR</h2>
+                                <button id="close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" transform="scale(3.0)">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <li class="group xl:px-10 p-4">
+                                <a href="http://localhost:2000/#service" class="text-lg">Our Services</a>
+                            </li>
+                            <li class="group xl:px-10 p-4">
+                                <a href="http://localhost:2000/#whyus" class="text-lg">Why Us</a>
+                            </li>
+                            <li class="group xl:px-10 p-4">
+                                <a href="http://localhost:2000/#testimonials" class="text-lg">Testimonials</a>
+                            </li>
+                            <li class="group xl:px-10 p-4">
+                                <a href="http://localhost:2000/#faq" class="text-lg">FAQ</a>
+                            </li>
+                            <div class="p-4 xl:px-10">
+                                <button class="bg-green-500 py-2 px-4 font-semibold text-lg text-white rounded-lg">
+                                    Register
+                                </button>
+                            </div>
+                        </ul>
+                    </nav>
+                    <!-- <div id="right-side" class="w-1/2 h-full fixed bg-gray-800 opacity-30 left-0 z-[998] top-0 hidden lg:hidden">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Start -->
+    <section id="home" class="pt-48 bg-blue-100">
+        <div class=" container mx-auto pl-6 lg:pl-0">
+            <div class="flex flex-wrap">
+                <div class="w-10/12 mb-6 lg:w-1/2">
+                    <h1 class="font-bold text-5xl leading-normal mb-4">Sewa & Rental Mobil Terbaik di Kawasan Sleman</h1>
+                    <p class="font-light leading-relaxed mb-6 max-w-md">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt facere totam sint asperiores impedit beatae iste repellendus magni et culpa!</p>
+                    <div class="w-1/2 bg-green-600 p-3 flex justify-center rounded-lg cursor-pointer hover:shadow-2xl hover:opacity-90 transition duration-300 max-w-xs">
+                        <a href="#sewa" class="font-semibold text-white">Mulai Sewa Mobil</a>
+                    </div>
+                </div>
+                <div class="w-full relative -z-0 self-end lg:w-1/2">
+                    <img src="http://localhost:2000/public/assets/mercedes.png" alt="mercedes" class="bg-transparent 2xl:scale-125 2xl:pl-10">
+                    <div class="w-full h-4/6 bg-blue-900 rounded-tl-[50px] absolute  bottom-0 left-0 -z-10 2xl:scale-125"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <section id="rental" class="pt-24">
+        <div class="grid grid-cols-1 gap-3 justify-items-center container ">
+            <div class="grid grid-cols-1 w-full justify-items-center gap-5 p-6 rounded-md lg:grid-cols-5 lg:justify-items-stretch bg-white lg:flex lg:w-[90%] shadow-lg">
+                <div class="grid grid-cols-1 w-10/12 gap-2">
+                    <label for="driver">Tipe Driver</label>
+                    <div class="custom-select relative bg-white cursor-pointer">
+                        <select id="driver" class="rounded-md w-full cursor-pointer border-slate-300 inputs">
+                          <option >Pilih Tipe Driver</option>
+                          <option value="Dengan Sopir">Dengan Sopir</option>
+                          <option value="Tanpa Sopir (Lepas Kunci)">Tanpa Sopir (Lepas Kunci)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 w-10/12 gap-2">
+                    <label for="date-available">Tanggal</label>
+                    <input class="w-full rounded-md border-slate-300  inputs" type="date" id="date-available">
+                </div>
+                <div class="grid grid-cols-1 w-10/12 gap-2">
+                    <label for="time-available">Waktu Jemput/Ambil</label>
+                    <input class="w-full rounded-md border-slate-300  inputs" type="time" id="time-available">
+                </div>
+                <div class="grid grid-cols-1 w-10/12 gap-2">
+                    <label for="passengers">Jumlah Penumpang (optional)</label>
+                    <input class="w-full rounded-md border-slate-300 inputs" type="text" id="passengers" placeholder="Jumlah Penumpang">
+                </div>
+                <div class="grid grid-cols-1 w-10/12">
+                    <button id="find-car" class="bg-green-500 text-white font-bold w-full rounded-md lg:h-[57%] p-3 my-2 self-end lg:my-0 lg:p-0">Cari Mobil</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 cars">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Start -->
+    <footer class="pt-16 pb-20">
+        <div class="container px-6">
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full lg:w-1/4 flex justify-center">
+                    <div class="w-full grid grid-rows-3 py-2 lg:px-7justify-center items-center">
+                        <p class="text-lg">Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+                        <p class="text-lg">binarcarrental@gmail.com</p>
+                        <p class="text-lg">081-233-334-808</p>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/4 flex justify-center">
+                    <div class="w-full grid gap-2 grid-rows-4 py-2 lg:px-7 lg:justify-center">
+                        <a href="#service" class="font-semibold text-lg">Our Services</a>
+                        <a href="#whyus" class="font-semibold text-lg">Why Us</a>
+                        <a href="#testimonials" class="font-semibold text-lg">Testimonial</a>
+                        <a href="#faq" class="font-semibold text-lg">FAQ</a>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/4 flex lg:justify-center">
+                    <div class="flex flex-wrap py-2 lg:h-0 lg:px-7 lg:justify-center">
+                        <p class="text-lg w-full pb-2">Connect with us</p>
+                        <div class="flex items-center w-full pt-2">
+                            <img src="http://localhost:2000/public/assets/icon_facebook.svg" class="pr-3" alt="facebook">
+                            <img src="http://localhost:2000/public/assets/icon_instagram.svg" class="pr-3" alt="instagram">
+                            <img src="http://localhost:2000/public/assets/icon_mail.svg" class="pr-3" alt="mail">
+                            <img src="http://localhost:2000/public/assets/icon_twitter.svg" class="pr-3" alt="twitter">
+                            <img src="http://localhost:2000/public/assets/icon_twitch.svg" class="pr-3" alt="twitch">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full grid grid-rows-2 py-2 lg:w-1/4 lg:h-28 lg:justify-center">
+                    <p class="text-lg">Copyright Binar 2022</p>
+                    <a href="#home" class="w-20 h-8 block bg-blue-900"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <script src="./scripts/car.js"></script>
+    <script src="http://localhost:2000/public/scripts/script.js"></script>
+    <script src="http://localhost:2000/public/lib/owl_carousel/js/jquery.js"></script>
+    <script src="http://localhost:2000/public/lib/owl_carousel/dist/owl.carousel.min.js"></script>
+    <script src="http://localhost:2000/public/scripts/carousel.js"></script>
+</body>
+</html>

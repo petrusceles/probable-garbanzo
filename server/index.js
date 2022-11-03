@@ -3,7 +3,13 @@ const path = require("path");
 const fs = require("fs");
 const BASE_DIRECTORY = path.join(__dirname, '..')
 const PUBLIC_DIRECTORY = path.join(BASE_DIRECTORY,'/public')
-const IMAGE_FORMATS = ['jpeg','jpg', 'svg','png']
+const cors = require('cors')
+const allowList = ['http://127.0.0.1:5500/']
+const corsOptions = {
+    origin: allowList,
+    credentials:true
+  }
+  
 const MIME_TYPE = {
     "jpg":"image/jpeg",
     "jpeg":"image/jpeg",
@@ -53,6 +59,19 @@ const serverHandle = (req,res) => {
                 res.writeHead(200, { 'Content-Type' : 'text/html' })
                 res.end(htmlIndex)
                 return
+            case "/data/cars":
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+                res.setHeader('Access-Control-Max-Age', 2592000);
+                fs.readFile(BASE_DIRECTORY + "/data/cars.json", (err,data) => {
+                    if (err) {
+                        res.writeHead(500, { 'Content-Type' : 'text/plain' });
+                        res.end('500 - Internal Error');
+                    } else {
+                        res.writeHead( 200, { 'Content-Type' : 'application/json' });
+                        res.end(data);
+                    }
+                })
         }
     }
 }
