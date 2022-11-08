@@ -16,6 +16,8 @@ class Car{
     static init(cars) {
       this.list = cars.map((i) => new this(i));
     }
+
+    
   
     constructor({
       id,
@@ -49,6 +51,7 @@ class Car{
       this.options = options;
       this.specs = specs;
       this.availableAt = availableAt;
+      this.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
   
     render() {
@@ -104,25 +107,35 @@ const inputs = document.querySelectorAll(".inputs")
 const carsPopulation = document.querySelector(".cars")
 
 findCarButton.addEventListener('click', async (e) => {
+    carsPopulation.textContent = ''
     const date = inputs[1].value.split('-')
     const time = inputs[2].value.split(':')
     const validDate = inputs[1].value && inputs[2].value
-    const dataTime = new Date(date[0], date[1], date[2], time[0], time[1])
+    const dataTime = new Date(date[0], date[1]-1, date[2], time[0], time[1])
+    let withDriver = inputs[0].value;
+    if (withDriver == "Dengan Sopir") {
+      withDriver = true;
+    } else if (withDriver == "Tanpa Sopir (Lepas Kunci)") {
+      withDriver = false;
+    } else {
+      withDriver = null;
+    }
     const inputValues = {
         time:dataTime,
-        passengers:inputs[3].value
+        passengers:inputs[3].value,
+        withDriver
     }
-    // console.log(inputs[3].value)
-    let filter = e => e.capacity >= inputValues.passengers && e.availableAt.getTime()<=inputValues.time.getTime()
-    console.log(inputValues.time)
-    if (!inputValues.passengers && inputValues.time instanceof Date) {
-      filter=0
-    }
-    const cars = await Binar.listCars(filter)
+    // let filter = e => e.capacity >= inputValues.passengers && e.availableAt<=inputValues.time
+    // // console.log(inputValues.time)
+    // if (!inputValues.passengers && inputValues.time instanceof Date) {
+    //   filter=0
+    // }
+    const cars = await Binar.listCars(inputValues)
     cars.forEach((e) => {
       const carObject = new Car(e);
       const rendered = carObject.render();
       let dom = document.createElement('div');
+      dom.classList.add('bg-red-200')
       dom.innerHTML = rendered;
       carsPopulation.appendChild(dom)
 
@@ -133,7 +146,6 @@ findCarButton.addEventListener('click', async (e) => {
     // } else {
     //     benar
     // }
-    console.log(validDate)
 })
 // console.log(findCarButton)
 function getRandomInt(min, max) {
@@ -149,15 +161,16 @@ function getRandomInt(min, max) {
         const timeAt = new Date();
         const mutator = getRandomInt(1000000, 100000000);
         const availableAt = new Date(timeAt.getTime() + (isPositive ? mutator : -1 * mutator))
-  
+        const withDriver = Math.random() < 0.5
         return {
           ...car,
           availableAt,
+          withDriver
         };
       })
     }
   
-    static async listCars(filterer) {
+    static async listCars(inputValues) {
         let cars;
         let cachedCarsString = localStorage.getItem("CARS");
     
@@ -173,12 +186,21 @@ function getRandomInt(min, max) {
     
           localStorage.setItem("CARS", JSON.stringify(cars));
         }
-        const filtered = cars.filter(e => e.availableAt)
-        console.log(filtered)
-    
-        if (filterer instanceof Function) return cars.filter(filterer);
-    
-        return cars;
+        // const filtered = cars.filter(e => e.availableAt)
+        // console.log(filtered)
+        // console.log(`${inputValues.time} and ${inputValues.withDriver}`)
+        if (inputValues.passenger == undefined) {
+          inputValues.passenger =0;
+        }
+        // cars.forEach((e) => {
+        //   console.log(`\n${parseInt(e.availableAt.getTime()) <= parseInt(inputValues.time.getTime())}`)
+        //   console.log(`${(e.withDriver == inputValues.withDriver)}`)
+        //   console.log( (parseInt(e.availableAt.getTime()) <= parseInt(inputValues.time.getTime())) && (e.withDriver == inputValues.withDriver))
+        // })
+        if (isNaN(inputValues.time) || inputValues.withDriver == null) {
+          return cars
+        }
+        return cars.filter(e => parseInt(e.availableAt.getTime()) <= parseInt(inputValues.time.getTime()) && e.withDriver == inputValues.withDriver)
     }
   }
   
